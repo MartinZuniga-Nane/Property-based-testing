@@ -21,6 +21,12 @@ function normalizeTitle(title) {
   return normalized;
 }
 
+function validateId(id) {
+  if (!Number.isSafeInteger(id) || id <= 0) {
+    throw new TypeError('ID must be a positive safe integer');
+  }
+}
+
 export class TaskStore {
   #tasks = new Map();
   #nextId = 1;
@@ -35,5 +41,15 @@ export class TaskStore {
     };
     this.#tasks.set(task.id, task);
     return { ...task };
+  }
+
+  get(id) {
+    validateId(id);
+    const task = this.#tasks.get(id);
+    return task ? { ...task } : null;
+  }
+
+  list() {
+    return Array.from(this.#tasks.values(), (task) => ({ ...task }));
   }
 }

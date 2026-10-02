@@ -28,3 +28,7 @@ export const invalidInput = fc.oneof(
 export const invalidCompleted = fc.oneof(
   fc.constantFrom(undefined, null), fc.integer(), fc.string(), fc.array(fc.boolean()),
 );
+export const invalidId = fc.oneof(
+  fc.integer({ max: 0 }), fc.string(), fc.boolean(), fc.constantFrom(null, undefined, NaN, Infinity),
+  fc.double().filter((value) => !Number.isSafeInteger(value) || value <= 0),
+);
