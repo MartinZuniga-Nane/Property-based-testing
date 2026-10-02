@@ -52,4 +52,25 @@ export class TaskStore {
   list() {
     return Array.from(this.#tasks.values(), (task) => ({ ...task }));
   }
+
+  update(id, changes) {
+    validateId(id);
+    const current = this.#tasks.get(id);
+    if (!current) {
+      throw new RangeError('Task not found');
+    }
+    validateFields(changes);
+    if (Object.keys(changes).length === 0) {
+      throw new TypeError('At least one field must be provided');
+    }
+    const updated = { ...current };
+    if (Object.hasOwn(changes, 'title')) {
+      updated.title = normalizeTitle(changes.title);
+    }
+    if (Object.hasOwn(changes, 'completed')) {
+      updated.completed = changes.completed;
+    }
+    this.#tasks.set(id, updated);
+    return { ...updated };
+  }
 }
