@@ -1,0 +1,40 @@
+Investigación previa — 2 de octubre de 2026
+
+Se revisó Hypothesis para Python y fast-check para JavaScript. Ambos generan
+entradas y reducen un fallo a un contraejemplo. Se eligió JavaScript porque
+Node está disponible y su ejecutor nativo evita agregar otro framework.
+La única dependencia de desarrollo es fast-check; no hay dependencias de ejecución.
+
+Fuentes oficiales consultadas:
+https://hypothesis.readthedocs.io/en/latest/tutorial/introduction.html
+https://fast-check.dev/docs/introduction/
+https://fast-check.dev/docs/tutorials/quick-start/our-first-property-based-test/
+https://fast-check.dev/docs/core-blocks/arbitraries/primitives/string/
+https://fast-check.dev/docs/core-blocks/runners/
+https://fast-check.dev/docs/advanced/model-based-testing/
+https://nodejs.org/api/test.html
+
+Diseño elegido:
+- Tareas: ID positivo, título y estado completed booleano.
+- Un Map privado almacena las tareas durante la vida del proceso.
+- Títulos recortados con trim: entre 1 y 120 unidades UTF-16 (String.length).
+- Los IDs los asigna el gestor y no se reutilizan después de eliminar.
+- Los valores devueltos son copias para proteger el estado interno.
+- Lectura inexistente: null. Actualización inexistente: RangeError.
+- Eliminar devuelve true si existía y false si ya no existe.
+- Sin interfaz gráfica, servidor, base de datos ni clases adicionales.
+
+Plan de propiedades:
+Create: conservar datos normalizados, IDs únicos, rechazar entradas inválidas.
+Read: consultar y listar conservan el estado; las copias no modifican el almacén.
+Update: cambiar solo los campos solicitados y conservar ID y otras tareas.
+Delete: retirar solo el objetivo, repetición idempotente e IDs no reutilizados.
+Integración: secuencias generadas de operaciones comparadas con un modelo simple.
+
+fast-check permite combinar record, array, boolean y string en generadores.
+fc.property define el comportamiento general y fc.assert ejecuta los casos.
+Se usan generadores de ASCII y Unicode, y 500 ejecuciones por propiedad.
+Cada ejecución crea un gestor nuevo, evitando contaminación entre casos.
+No se necesita el marco completo de comandos: basta generar una secuencia
+de acciones y compararla con una lista de datos esperados.
+Al fallar, fast-check muestra la semilla, la ruta de reducción y el contraejemplo.

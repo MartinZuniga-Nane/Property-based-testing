@@ -1,0 +1,25 @@
+Crear: {
+  id: 1,
+  title: 'Estudiar pruebas basadas en propiedades',
+  completed: false
+}
+Obtener: {
+  id: 1,
+  title: 'Estudiar pruebas basadas en propiedades',
+  completed: false
+}
+Actualizar: {
+  id: 1,
+  title: 'Estudiar pruebas basadas en propiedades',
+  completed: true
+}
+Listar: [
+  {
+    id: 1,
+    title: 'Estudiar pruebas basadas en propiedades',
+    completed: true
+  }
+]
+Eliminar: true
+Obtener despues de eliminar: null
+Listado final: []

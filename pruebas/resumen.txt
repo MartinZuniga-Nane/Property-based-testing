@@ -1,0 +1,36 @@
+EVIDENCIAS DE VALIDACIÓN
+Fecha: 2 de octubre de 2026
+
+Entorno: Node.js v22.16.0, npm 11.12.1, fast-check 4.10.2.
+Instalación reproducible: npm ci --ignore-scripts, exit code 0.
+Auditoría de la instalación: 0 vulnerabilidades.
+
+Ejecución final de propiedades:
+FC_SEED=20261002
+FC_NUM_RUNS=500 (valor predeterminado)
+22 propiedades, 500 casos por propiedad: 11.000 casos.
+22 aprobadas, 0 fallidas, 0 omitidas.
+Las 3 entradas explícitas de borde están incluidas en esos 11.000 casos.
+
+Comando para reproducir el reporte, desde la raíz del repositorio:
+node --test --experimental-test-coverage --test-coverage-include=src/** --test-reporter=spec --test-reporter-destination=pruebas/resultados.txt tests/*.test.js
+
+El valor de FC_SEED se establece como variable de entorno antes del comando.
+Node 22 emite un aviso de función experimental por el filtrado de cobertura.
+La ejecución finalizó correctamente con exit code 0.
+
+Cobertura de src/task-store.js:
+Líneas: 100%.
+Ramas: 100%.
+Funciones: 100%.
+La cobertura registra ejecución; las propiedades verifican el comportamiento.
+
+Archivos:
+- investigacion.txt: fuentes y decisiones previas a implementar.
+- resultados.txt: salida del ejecutor con resultados y cobertura.
+- demo.txt: salida de la demostración completa del CRUD.
+- Prueba1.png y Prueba 2.png: capturas de la demostración CRUD.
+- Prueba 3.png y Prueba 4.png: capturas de las pruebas y su resumen.
+
+Las pruebas ejecutables se encuentran en tests/.
+Esta carpeta pruebas/ contiene evidencias revisadas y forma parte de Git.

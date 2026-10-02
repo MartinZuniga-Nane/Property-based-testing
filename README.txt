@@ -99,5 +99,15 @@ https://nodejs.org/docs/latest-v22.x/api/test.html
 
 ENTREGA
 
-El código y las pruebas están versionados. pruebas/ contiene evidencias
-locales y está excluida de Git, igual que node_modules/, .env y los archivos .md.
+El código y las pruebas ejecutables están versionados en src/ y tests/.
+La carpeta pruebas/ contiene las evidencias de validación y también está
+incluida en el repositorio:
+
+- Prueba1.png y Prueba 2.png: demostración de las operaciones CRUD.
+- Prueba 3.png y Prueba 4.png: ejecución y resumen de las 22 pruebas aprobadas.
+- resultados.txt: resultados completos y cobertura del gestor.
+- demo.txt: salida de la demostración CRUD.
+- resumen.txt: entorno, semilla, número de casos y comando de reproducción.
+- investigacion.txt: fuentes consultadas y decisiones de implementación.
+
+node_modules/, .env y los archivos .md permanecen excluidos de Git.

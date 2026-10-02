@@ -1,0 +1,40 @@
+✔ Create: conserva los datos validos y asigna IDs unicos (125.366ms)
+✔ Create: las tareas nuevas estan pendientes por defecto (10.2821ms)
+✔ Create: rechaza titulos invalidos sin consumir IDs (45.0593ms)
+✔ Create: rechaza entradas y estados de tipo incorrecto (24.5851ms)
+✔ Create: el ID solo puede asignarlo el gestor (51.6969ms)
+✔ Delete: elimina solo la tarea elegida y repetirlo no cambia el estado (160.5112ms)
+✔ Delete: eliminar IDs inexistentes no modifica el almacen (37.7171ms)
+✔ Delete: eliminar todo deja el almacen vacio y no reutiliza IDs (50.2362ms)
+✔ Delete: rechaza IDs invalidos sin modificar las tareas (25.4931ms)
+✔ CRUD: las secuencias de operaciones coinciden con el modelo esperado (151.7063ms)
+✔ CRUD: cada tarea puede crearse, leerse, actualizarse y eliminarse (28.1061ms)
+✔ Read: obtener y listar conservan los datos y el estado (159.8694ms)
+✔ Read: un ID inexistente devuelve null sin cambiar el listado (52.1722ms)
+✔ Read: cambiar entradas o resultados de create y get no altera el almacen (11.1267ms)
+✔ Read: el listado y sus elementos son copias independientes (40.033ms)
+✔ Read: rechaza IDs invalidos sin modificar las tareas (20.5848ms)
+✔ Update: conserva el ID, la cantidad y las otras tareas (179.601ms)
+✔ Update: una actualizacion parcial conserva el campo omitido (14.7175ms)
+✔ Update: aplicar el mismo cambio dos veces produce el mismo estado (22.1395ms)
+✔ Update: los cambios invalidos se rechazan sin modificar el estado (67.9748ms)
+✔ Update: rechaza IDs invalidos o inexistentes sin crear tareas (32.7785ms)
+✔ Update: modificar el resultado o los cambios no altera la tarea guardada (15.6411ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1038.796
+ℹ start of coverage report
+ℹ ---------------------------------------------------------------
+ℹ file           | line % | branch % | funcs % | uncovered lines
+ℹ ---------------------------------------------------------------
+ℹ src            |        |          |         |
+ℹ  task-store.js | 100.00 |   100.00 |  100.00 |
+ℹ ---------------------------------------------------------------
+ℹ all files      | 100.00 |   100.00 |  100.00 |
+ℹ ---------------------------------------------------------------
+ℹ end of coverage report

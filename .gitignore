@@ -1,5 +1,4 @@
 node_modules/
-pruebas/
 coverage/
 *.md
 .env
